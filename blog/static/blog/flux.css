@@ -1,0 +1,203 @@
+#page_body
+{
+    background-color: black;
+}
+
+#whole_page
+{
+    width: 60%;
+    height: 100%;
+    margin: auto;           /* Automatically centered */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header
+{
+    background-color: rgb(255,245,215);
+    height: 10%;
+    display: flex;                  /* Title and nav are put in-line */
+    flex-direction: row;            /* Not mandatory here but OK */
+    justify-content: space-between; /* Space between title and navigation links */
+}
+
+header img
+{
+    width: 12%;
+    height: auto;
+}
+
+header h1
+{
+    font-size: 3.0em;
+    color: black; /*rgb(255,100,100);*/
+    font-family: Times, serif;
+    font-weight: normal;
+    font-style: italic;
+    text-decoration: none;  /* Do not underline */
+}
+
+/* Navigation */
+
+nav ul
+{
+    list-style-type: none;
+    display: flex;
+}
+
+nav li
+{
+    margin-right: 15px;
+}
+
+nav a
+{
+    font-size: 1.5em;
+    color: black; /*rgb(255,100,100);*/
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    text-decoration: none;  /* Do not underline */
+}
+
+nav a:hover
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Second block: selected film */
+
+#main_img
+{
+    border: none;
+    width: 100%;
+}
+
+.book_img
+{
+    border: none;
+    width: 30%;
+}
+
+/* Next block: forms */
+
+#my_container
+{
+    background-color: rgb(255,245,215);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+h2
+{
+    text-align: center;
+    font-size: 1.5em;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+#main_div
+{
+    width: 60%;
+}
+
+#top_buttons
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.top_button
+{
+    background-color: rgb(50,150,50);
+    color: black;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.top_button:hover
+{
+    color: blue;
+    cursor: pointer;
+}
+
+.yellow_star
+{
+    color: orange;
+    font-size: 1.8em;
+}
+
+.empty_star
+{
+    font-size: 1.8em;
+}
+
+.date_time
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    font-weight: bold;
+    color: blue;
+}
+
+.asking
+{
+    font-weight: bold;
+    font-style: italic;
+    color: green;
+}
+
+.book_title
+{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.grade
+{
+    font-size: 1.5em;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+}
+
+input[type="radio"]
+{
+    margin: 0 0.5em 0 2.0em;
+}
+
+.review_button_div
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.review_button
+{
+    font-size: 1.3em;
+    background-color: rgb(50,150,50);
+    color: black;
+    margin-left: 0.5em;
+}
+
+.review_button:hover
+{
+    color: blue;
+    cursor: pointer;
+}
+
+/* Last block: footer */
+
+#page_footer
+{
+    color: white;
+    text-align: center;
+}

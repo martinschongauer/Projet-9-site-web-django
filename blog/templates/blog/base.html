@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+        {% load static %}
+
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="{% static css_name %}" />
+        <title>{{ page_title }}</title>
+    </head>
+
+    <body id="page_body">
+    <div id="whole_page">
+
+        <header>
+        <img src="{% static 'blog/logo.png' %}" alt="logo">
+            <h1>LITReview</h1>
+
+            {% if nav_bar %}
+                <nav>
+                    <ul>
+                        <li><a href="{% url 'flux' %}">Flux</a></li>
+                        <li><a href="{% url 'my_posts' %}">Posts</a></li>
+                        <li><a href="{% url 'follow' %}">Abonnements</a></li>
+                        <li><a href="{% url 'logout' %}">Déconnexion</a></li>
+                    </ul>
+                </nav>
+            {% else %}
+                <img src="{% static 'blog/logo_padding.png' %}" alt="logo">
+            {% endif %}
+
+        </header>
+
+        <section>
+            <img src="{% static 'blog/bibliotheque.jpg' %}" id="main_img" alt="logo">
+        </section>
+
+        {% block content %}{% endblock %}
+
+        <footer id="page_footer" class="sections">
+            <p> &#169 2022 LITReview. All rights reserved. </p>
+        </footer>
+
+    </div>
+    </body>
+</html>

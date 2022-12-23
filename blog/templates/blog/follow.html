@@ -1,0 +1,53 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+    <section id="my_container">
+
+        <div id="form">
+
+            <h2>Suivre d'autres utilisateurs</h2>
+            <p>
+                <form method="post" action="{% url 'follow' %}">
+
+                    {% csrf_token %}
+                    {{ form_add.non_field_errors }}
+                    {{ form_add.username.errors }}
+                    <div id="error_msg"> {{ error_msg }} </div>
+                    <input type="text" name="{{ form_add.username.html_name }}" size="75" maxlength="{{ username.field.max_length }}" required autofocus/>
+                    <button id="send_button"> Envoyer </button>
+
+                </form>
+            </p>
+
+                </br>
+                </br>
+
+            <p>
+            <h2>Abonnements</h2>
+            {% for follow in following %}
+                    <button class="delete_button" onclick="window.location.href='{% url 'follow_delete' follow.id %}';"> Désabonner </button>
+                    <em>{{ follow.followed_user.username }}</em></br></br>
+            {% endfor %}
+            </p>
+
+
+                </br>
+                </br>
+
+                <p>
+                    <h2>Abonnés</h2>
+
+                    {% for follower in followers %}
+
+                    <em>{{ follower.username }}</em></br>
+
+                    {% endfor %}
+
+                </p>
+
+                </br>
+        </div>
+    </section>
+
+{% endblock %}

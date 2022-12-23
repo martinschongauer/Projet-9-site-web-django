@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+    <section id="my_container">
+        <div id="create_account">
+            <h2>Inscription</h2>
+            <button id="subscribe_button" onclick="window.location.href='{% url 'subscribe' %}';"> Inscription </button>
+        </div>
+
+        <div id="form">
+            <form method="post">
+
+                {% csrf_token %}
+
+                <p>
+                    <h2>Connexion</h2>
+                    <h3>{{ message }}</h3>
+
+                    <label for="username">Votre nom d'utilisateur:</label>
+                    <input type="text" name="username" id="username" size="35" maxlength="30" required autofocus/>
+
+                    <label for="pass_word">Votre mot de passe:</label>
+                    <input type="password" name="pass_word" id="pass_word" size="35" maxlength="30"/>
+                </p>
+
+                <p>
+                    <button id="connect_button"> Se connecter </button>
+                </p>
+
+                </br>
+                </br>
+
+            </form>
+        </div>
+    </section>
+
+{% endblock %}

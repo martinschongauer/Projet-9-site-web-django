@@ -1,0 +1,40 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+    <section id="my_container">
+        <div id="form">
+
+            <form method="post" enctype="multipart/form-data" action="{% url 'ticket' %}">
+                <p>
+                    <h2>Créer un ticket</h2>
+
+                    {% csrf_token %}
+                    {{ form_add.non_field_errors }}
+                    {{ form_add.title.errors }}
+                    {{ form_add.description.errors }}
+                    {{ form_add.image.errors }}
+
+                    <label for="book_title">Titre:</label>
+                    <input type="text" name="{{ form_add.title.html_name }}" id="book_title" size="75" maxlength="{{ form_add.title.field.max_length }}" required autofocus/>
+
+                    <label for="book_description">Description:</label>
+                    <textarea name="{{ form_add.description.html_name }}" id="book_description" rows="10" cols="75" maxlength="{{ form_add.description.field.max_length }}"></textarea>
+
+                    </br>
+                    </br>
+
+                    <label>Image (png ou jpg):</label>
+                    <input type="file" name="image" accept="image/*">
+                </p>
+
+                </br>
+                    <button id="send_button" type="submit"> Envoyer </button>
+                </br>
+                </br>
+            </form>
+
+        </div>
+    </section>
+
+{% endblock %}

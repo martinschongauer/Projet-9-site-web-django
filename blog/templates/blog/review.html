@@ -1,0 +1,72 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+    <section id="my_container">
+
+        <div id="form">
+            <form method="post" enctype="multipart/form-data" action="{% url 'review' %}">
+
+                <h2>Créer une critique</h2>
+
+                {% csrf_token %}
+                {{ form_add.non_field_errors }}
+                {{ form_add.title.errors }}
+                {{ form_add.description.errors }}
+                {{ form_add.image.errors }}
+
+                <fieldset>
+                    <legend>Livre/article</legend>
+
+                    <label for="book_title">Titre:</label>
+                    <input type="text" name="{{ form_add.title.html_name }}" id="book_title" size="75" maxlength="{{ form_add.title.field.max_length }}" required autofocus/>
+
+                    <label for="book_description">Description:</label>
+                    <textarea name="{{ form_add.description.html_name }}" id="book_description" rows="10" cols="75" maxlength="{{ form_add.description.field.max_length }}"></textarea>
+
+                    <label>Image (png ou jpg):</label>
+                    <input type="file" name="image" accept="image/*">
+                </fieldset>
+
+                <br />
+
+                <fieldset>
+                    <legend>Critique</legend>
+
+                    {{ form_add.rating.errors }}
+                    {{ form_add.headline.errors }}
+                    {{ form_add.body.errors }}
+
+                    <label for="review_title">Titre:</label>
+                    <input type="text" name="{{ form_add.headline.html_name }}" id="review_title" size="75" maxlength="{{ form_add.headline.field.max_length }}" required autofocus/>
+
+                    <br />
+                    <br />
+                    Note:
+                   <p>
+                       <input type="radio" name="{{ form_add.rating.html_name }}" value="0" id="radio0" /> <label for="radio0"> - 0</label>
+                       <input type="radio" name="{{ form_add.rating.html_name }}" value="1" id="radio1" /> <label for="radio1"> - 1</label>
+                       <input type="radio" name="{{ form_add.rating.html_name }}" value="2" id="radio2" /> <label for="radio2"> - 2</label>
+                       <input type="radio" name="{{ form_add.rating.html_name }}" value="3" id="radio3" checked="yes" /> <label for="radio3"> - 3</label>
+                       <input type="radio" name="{{ form_add.rating.html_name }}" value="4" id="radio4" /> <label for="radio4"> - 4</label>
+                       <input type="radio" name="{{ form_add.rating.html_name }}" value="5" id="radio5" /> <label for="radio5"> - 5</label>
+                   </p>
+
+                    <label for="book_description">Commentaire:</label>
+                    <textarea name="{{ form_add.body.html_name }}" id="review_comment" rows="10" cols="75" maxlength="{{ form_add.body.field.max_length }}"></textarea>
+
+                    </br>
+                    </br>
+                    </br>
+                    <button id="send_button" type="submit"> Envoyer </button>
+                </fieldset>
+
+
+                </br>
+                </br>
+            </form>
+        </div>
+
+    </section>
+
+{% endblock %}

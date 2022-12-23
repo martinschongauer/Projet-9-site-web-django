@@ -1,0 +1,107 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+    <section id="my_container">
+
+        <div id="main_div">
+
+            <h2>Vos posts</h2>
+
+            {% for post in posts %}
+
+            {% if post.is_ticket %}
+
+            <fieldset>
+
+                <legend>Vous avez publié un ticket:</legend>
+
+                <div class="date_time">
+                    {{ post.time_created }}
+                </div>
+
+                <p class="book_title">
+                    {{ post.tick_title }}
+                </p>
+
+                {{ post.tick_description }}
+
+                <br />
+                <br />
+
+                <img src="{{ post.tick_image_url }}" class="book_img"/>
+
+                <div class="review_button_div">
+                    <button class="review_button" onclick="window.location.href='{% url 'ticket_update' post.tick_id %}';"> Modifier </button>
+                    <button class="review_button" onclick="window.location.href='{% url 'ticket_delete' post.tick_id %}';"> Supprimer </button>
+                </div>
+
+            </fieldset>
+
+            <br />
+
+            {% else %}
+
+            <fieldset>
+                <legend>Vous avez publié une critique:</legend>
+
+                <div class="date_time">
+                    {{ post.rev_time_created }}
+                </div>
+
+                <span class="grade"> {{ post.rev_headline }} - </span>
+
+                {% for star in post.yellow_stars %}
+
+                <span class="yellow_star">&#9733;</span>
+
+                {% endfor %}
+
+                {% for star in post.empty_stars %}
+
+                <span class="empty_star">&#9734;</span>
+
+                {% endfor %}
+
+                <p>
+                    {{ post.rev_body }}
+                </p>
+
+                <br />
+
+                <fieldset>
+                    <legend>Ticket de {{ post.rev_answer_to }}:</legend>
+
+                    <p class="book_title">
+                        {{ post.tick_title }}
+                    </p>
+
+                    {{ post.tick_description }}
+
+                    <br />
+                    <br />
+
+                    <img src="{{ post.tick_image_url }}" class="book_img"/>
+
+                </fieldset>
+
+                <div class="review_button_div">
+                    <button class="review_button" onclick="window.location.href='{% url 'review_update' post.rev_id %}';"> Modifier </button>
+                    <button class="review_button" onclick="window.location.href='{% url 'review_delete' post.rev_id %}';"> Supprimer </button>
+                </div>
+
+            </fieldset>
+
+            <br />
+
+            {% endif %}
+
+            {% endfor %}
+
+            </br>
+            </br>
+        </div>
+
+    </section>
+
+{% endblock %}

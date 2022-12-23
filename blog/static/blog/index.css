@@ -1,0 +1,143 @@
+#page_body
+{
+    background-color: black;
+}
+
+#whole_page
+{
+    width: 60%;
+    height: 100%;
+    margin: auto;           /* Automatically centered */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header
+{
+    background-color: rgb(255,245,215);
+    height: 10%;
+    display: flex;                  /* Title and nav are put in-line */
+    flex-direction: row;            /* Not mandatory here but OK */
+    justify-content: space-between; /* Space between title and navigation links */
+}
+
+header img
+{
+    width: 12%;
+    height: auto;
+}
+
+h1
+{
+    font-size: 3.0em;
+    color: black; /* rgb(255,100,100); */
+    font-family: Times, serif;
+    font-weight: normal;
+    font-style: italic;
+    text-decoration: none;  /* Do not underline */
+}
+
+h2
+{
+    text-align: center;
+    font-size: 2.0em;
+    color: black; /* rgb(255,100,100); */
+    font-family: Times, serif;
+    font-weight: normal;
+    font-style: italic;
+    text-decoration: underline;  /* Do not underline */
+}
+
+h3
+{
+    text-align: center;
+    font-size: 1.0em;
+    color: red;
+    font-family: Times, serif;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Navigation */
+
+nav ul
+{
+    list-style-type: none;
+    display: flex;
+}
+
+nav li
+{
+    margin-right: 15px;
+}
+
+nav a
+{
+    font-size: 1.5em;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    text-decoration: none;  /* Do not underline */
+}
+
+nav a:hover
+{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Second block: image */
+
+#main_img
+{
+    border: none;
+    width: 100%;
+}
+
+/* Next block: forms */
+
+#my_container
+{
+    background-color: rgb(255,245,215);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#create_account
+{
+    background-color: rgb(255,245,215);
+}
+
+#form
+{
+    background-color: rgb(255,245,215);
+    display: table;
+}
+
+#form p
+{
+    display: table-row;
+    line-height : 200%;
+}
+
+#form label
+{
+    display: table-cell;
+    line-height : 200%;
+}
+
+#form input
+{
+    display: table-cell;
+}
+
+
+/* Last block: footer */
+#page_footer
+{
+    color: white;
+    text-align: center;
+}
+

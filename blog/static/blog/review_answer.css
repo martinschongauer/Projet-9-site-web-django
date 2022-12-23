@@ -1,0 +1,168 @@
+#page_body
+{
+    background-color: black;
+}
+
+#whole_page
+{
+    width: 60%;
+    height: 100%;
+    margin: auto;           /* Automatically centered */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header
+{
+    background-color: rgb(255,245,215);
+    height: 10%;
+    display: flex;                  /* Title and nav are put in-line */
+    flex-direction: row;            /* Not mandatory here but OK */
+    justify-content: space-between; /* Space between title and navigation links */
+}
+
+header img
+{
+    width: 12%;
+    height: auto;
+}
+
+header h1
+{
+    font-size: 3.0em;
+    color: black; /*rgb(255,100,100);*/
+    font-family: Times, serif;
+    font-weight: normal;
+    font-style: italic;
+    text-decoration: none;  /* Do not underline */
+}
+
+/* Navigation */
+
+nav ul
+{
+    list-style-type: none;
+    display: flex;
+}
+
+nav li
+{
+    margin-right: 15px;
+}
+
+nav a
+{
+    font-size: 1.5em;
+    color: black; /*rgb(255,100,100);*/
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    text-decoration: none;  /* Do not underline */
+}
+
+nav a:hover
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Second block: selected film */
+
+#main_img
+{
+    border: none;
+    width: 100%;
+}
+
+#book_img
+{
+    border: none;
+    width: 20%;
+}
+
+/* Next block: forms */
+
+#my_container
+{
+    background-color: rgb(255,245,215);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#form
+{
+    background-color: rgb(255,245,215);
+    display: table;
+}
+
+#form p
+{
+    display: table-row;
+    line-height : 200%;
+}
+
+#form label
+{
+    display: table-cell;
+    line-height : 200%;
+}
+
+#form input
+{
+    display: table-cell;
+}
+
+#date_time
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    font-weight: bold;
+    color: blue;
+}
+
+#asking
+{
+    font-weight: bold;
+    font-style: italic;
+    color: green;
+}
+
+#book_title
+{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+h2
+{
+    text-align: center;
+    font-size: 2.0em;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+input[type="radio"]
+{
+    margin: 0 0.5em 0 2.0em;
+}
+
+#send_button
+{
+    font-size: 1.3em;
+    /*translate: 550%;*/
+    transform: translate(500%, -50%);
+    background-color: rgb(50,150,50);
+    color: black;
+}
+
+/* Last block: footer */
+
+#page_footer
+{
+    color: white;
+    text-align: center;
+}

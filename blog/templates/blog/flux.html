@@ -1,0 +1,122 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+    <section id="my_container">
+
+        <div id="main_div">
+
+            <br />
+            <br />
+            <div id="top_buttons">
+
+            <button class="top_button" onclick="window.location.href='{% url 'ticket' %}';">
+              Demander une critique
+            </button>
+
+            <button class="top_button" onclick="window.location.href='{% url 'review' %}';">
+              &nbsp &nbsp &nbsp Créer une critique &nbsp &nbsp &nbsp
+            </button>
+
+            </div>
+            <br />
+            <br />
+
+            {% for post in posts %}
+
+            {% if post.is_ticket %}
+
+            <fieldset>
+                <legend>{{ post.username }} a demandé une critique:</legend>
+
+                <div class="date_time">
+                    {{ post.time_created }}
+                </div>
+
+                <p class="book_title">
+                    {{ post.tick_title }}
+                </p>
+
+                <p>
+                    {{ post.tick_description }}
+                </p>
+
+                <br />
+
+                <img src="{{ post.tick_image_url }}" class="book_img"/>
+
+                {% if not post.locked %}
+
+                <div class="review_button_div">
+                    <button class="review_button" onclick="window.location.href='{% url 'review_answer' post.tick_id %}';"> Créer une critique </button>
+                </div>
+
+                {% endif %}
+
+            </fieldset>
+
+            {% else %}
+
+            <fieldset>
+                <legend>{{ post.username }} a publié une critique:</legend>
+
+                <div class="date_time">
+                    {{ post.time_created }}
+                </div>
+
+                <span class="grade"> {{ post.rev_headline }} - </span>
+
+                {% for star in post.yellow_stars %}
+
+                <span class="yellow_star">&#9733;</span>
+
+                {% endfor %}
+
+                {% for star in post.empty_stars %}
+
+                <span class="empty_star">&#9734;</span>
+
+                {% endfor %}
+
+                <p>
+                    {{ post.rev_body }}
+                </p>
+
+                <fieldset>
+                    <legend>Ticket de {{ post.rev_answer_to }}:</legend>
+
+                    <p class="book_title">
+                        {{ post.tick_title }}
+                    </p>
+
+                    {{ post.tick_description }}
+
+                    <br />
+                    <br />
+
+                    <img src="{{ post.tick_image_url }}" class="book_img"/>
+
+                    {% if not post.locked %}
+
+                    <div class="review_button_div">
+                        <button class="review_button" onclick="window.location.href='{% url 'review_answer' post.tick_id %}';"> Créer une critique </button>
+                    </div>
+
+                    {% endif %}
+
+                </fieldset>
+
+            </fieldset>
+
+            {% endif %}
+
+            <br />
+
+            {% endfor %}
+
+            </br>
+        </div>
+
+    </section>
+
+{% endblock %}
